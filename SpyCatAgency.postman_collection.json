@@ -1,0 +1,496 @@
+{
+  "info": {
+    "name": "Spy Cat Agency API",
+    "_postman_id": "a5d2f75d-5bb1-4c1e-8f0a-123456789000",
+    "description": "CRUD API for Spy Cat Agency (Django REST Framework). Base URL: {{base_url}}",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Spy Cats",
+      "item": [
+        {
+          "name": "Create Spy Cat",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Agent Whiskers\",\n  \"years_of_experience\": 5,\n  \"breed\": \"bengal\",\n  \"salary\": \"5000.00\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/spy-cats/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "spy-cats",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Spy Cats",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/spy-cats/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "spy-cats",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Spy Cat by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/spy-cats/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "spy-cats",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Spy Cat Salary (PATCH)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"salary\": \"6000.00\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/spy-cats/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "spy-cats",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Spy Cat",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/spy-cats/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "spy-cats",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Missions",
+      "item": [
+        {
+          "name": "Create Mission with 2 Targets (no cat yet)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cat\": null,\n  \"targets\": [\n    {\n      \"name\": \"Target Alpha\",\n      \"country\": \"UK\",\n      \"notes\": \"Initial surveillance\",\n      \"is_completed\": false\n    },\n    {\n      \"name\": \"Target Bravo\",\n      \"country\": \"US\",\n      \"notes\": \"High priority\",\n      \"is_completed\": false\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/missions/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "missions",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Mission with 1 Target and assigned Cat (id=1)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cat\": 1,\n  \"targets\": [\n    {\n      \"name\": \"Target Charlie\",\n      \"country\": \"DE\",\n      \"notes\": \"Single target mission\",\n      \"is_completed\": false\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/missions/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "missions",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Missions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/missions/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "missions",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Mission by ID (1)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/missions/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "missions",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Assign Cat (id=1) to Mission (id=1)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cat_id\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/missions/1/assign_cat/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "missions",
+                "1",
+                "assign_cat",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Try to Assign Same Cat (id=1) to Another Active Mission (id=2) - should fail",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cat_id\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/missions/2/assign_cat/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "missions",
+                "2",
+                "assign_cat",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Mission (id=1, should fail if assigned to cat)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/missions/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "missions",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Mission (id=2, should work if not assigned to cat)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/missions/2/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "missions",
+                "2",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Targets",
+      "item": [
+        {
+          "name": "List Targets",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/targets/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "targets",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Target by ID (1)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/targets/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "targets",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Target Notes (id=1, mission/target not completed)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"notes\": \"Updated surveillance notes for target 1\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/targets/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "targets",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Mark Target (id=1) as Completed",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"is_completed\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/targets/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "targets",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Try to Update Notes After Target Completed (should fail)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"notes\": \"This should fail because target is completed\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/targets/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "targets",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Target (id=1)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/targets/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "targets",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Target Directly (Should return 405)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mission\": 1,\n  \"name\": \"Should Fail\",\n  \"country\": \"FR\",\n  \"notes\": \"This should return 405\",\n  \"is_completed\": false\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/targets/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "targets",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000/api"
+    }
+  ]
+}
